@@ -22,7 +22,43 @@ img {
   height: auto;
 }
 
-/* TODO alumno:
-   Aplicar Grid en .exercice y .excercice-incomplete
-   con enfoque Mobile First + media queries.
-*/
+footer{
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  color: brown;
+}
+
+/* ==============================
+   GRID - Mobile First
+   ============================== */
+
+/* --- Ejercicio: en mobile va apilado (1 columna) --- */
+.exercice {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* --- Rompecabezas incompleto: 2x2 siempre --- */
+.excercice-incomplete {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+}
+
+/* Posición de cada pieza */
+.grid-two   { grid-column: 1; grid-row: 1; }
+.grid-three   { grid-column: 2; grid-row: 1; }
+.grid-four { grid-column: 1; grid-row: 2; }
+.grid-one  { grid-column: 2; grid-row: 2; }
+
+/* --- En pantallas más grandes: imagen completa + rompecabezas lado a lado --- */
+@media (min-width: 600px) {
+  .exercice {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
